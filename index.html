@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eskişehir Hurda Alımı - Alüminyum, Demir, Bakır</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Temel Stiller */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #1a5f23;
+            --secondary: #d4af37;
+            --accent: #c62828;
+            --dark: #1a1a1a;
+            --light: #f5f5f5;
+            --gray: #666;
+        }
+        
+        body {
+            color: #333;
+            line-height: 1.6;
+            background-color: var(--light);
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        h1, h2, h3, h4 {
+            color: var(--dark);
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            font-weight: 800;
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        h2:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        h3 {
+            font-size: 1.8rem;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            color: var(--gray);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-whatsapp {
+            background: linear-gradient(to right, #25D366, #128C7E);
+        }
+        
+        .btn-phone {
+            background: linear-gradient(to right, var(--primary), #2a7c3a);
+        }
+        
+        /* Header */
+        header {
+            background-color: rgba(26, 31, 35, 0.95);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .logo i {
+            color: var(--secondary);
+            margin-right: 10px;
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            transition: color 0.3s;
+            font-size: 1rem;
+        }
+        
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: white;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding-top: 150px;
+            padding-bottom: 100px;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1578946955128-2595e49b1f93?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            color: white;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            color: #ddd;
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        .location-badge {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: var(--dark);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .phone-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin: 20px 0;
+            display: block;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        /* Hizmetler */
+        .services {
+            background-color: white;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+            border-top: 4px solid var(--primary);
+            text-align: center;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .metal-aluminium {
+            color: #a0a0a0;
+        }
+        
+        .metal-iron {
+            color: #b7410e;
+        }
+        
+        .metal-copper {
+            color: #b87333;
+        }
+        
+        /* Neden Biz */
+        .why-us {
+            background-color: var(--dark);
+            color: white;
+        }
+        
+        .why-us h2 {
+            color: white;
+        }
+        
+        .why-us h2:after {
+            background: linear-gradient(to right, var(--secondary), #f0c14b);
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .feature {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .feature i {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+        
+        .feature h3 {
+            color: white;
+        }
+        
+        /* Bölgeler */
+        .areas {
+            background-color: #f9f9f9;
+        }
+        
+        .areas-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+        
+        .area-item {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+        }
+        
+        .area-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .area-item i {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        
+        /* Fiyat Tablosu */
+        .pricing {
+            background-color: white;
+        }
+        
+        .price-table {
+            max-width: 800px;
+            margin: 50px auto 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid #eee;
+        }
+        
+        .price-header {
+            background: var(--primary);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .price-header h3 {
+            color: white;
+            margin-bottom: 10px;
+        }
+        
+        .price-body {
+            padding: 30px;
+        }
+        
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .price-row:last-child {
+            border-bottom: none;
+        }
+        
+        .metal-name {
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .price-note {
+            text-align: center;
+            margin-top: 20px;
+            font-style: italic;
+            color: var(--gray);
+        }
+        
+        /* İletişim */
+        .contact {
+            background-color: #f9f9f9;
+        }
+        
+        .contact-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            gap: 40px;
+        }
+        
+        .contact-info {
+            flex: 1;
+        }
+        
+        .contact-info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .contact-info-item i {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-right: 15px;
+            width: 30px;
+        }
+        
+        .contact-form {
+            flex: 1;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 30px;
+            padding-right: 20px;
+        }
+        
+        .footer-column h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .social-icons {
+            display: flex;
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            margin-right: 10px;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .contact-container {
+                flex-direction: column;
+            }
+            
+            .contact-info {
+                margin-bottom: 40px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: rgba(26, 31, 35, 0.98);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 10px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-buttons .btn {
+                width: 100%;
+                max-width: 300px;
+                margin-bottom: 10px;
+            }
+            
+            .footer-column {
+                min-width: 100%;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .phone-number {
+                font-size: 1.5rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">
+                    <i class="fas fa-recycle"></i> Eskişehir<span>Hurda</span>
+                </a>
+                
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <ul class="nav-links">
+                    <li><a href="#home">Ana Sayfa</a></li>
+                    <li><a href="#services">Hurdalarımız</a></li>
+                    <li><a href="#areas">Hizmet Bölgeleri</a></li>
+                    <li><a href="#why-us">Neden Biz</a></li>
+                    <li><a href="#pricing">Fiyatlar</a></li>
+                    <li><a href="#contact">İletişim</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="location-badge">
+                <i class="fas fa-map-marker-alt"></i> ESKİŞEHİR VE ÇEVRESİ
+            </div>
+            
+            <h1>Eskişehir'de En İyi Fiyata <span style="color: var(--secondary);">Hurda Alıyoruz!</span></h1>
+            <p>Eskişehir ve çevresinde alüminyum, demir ve bakır hurdalarınızı en yüksek piyasa fiyatından satın alıyoruz. Anında nakit ödeme ve ücretsiz taşıma!</p>
+            
+            <div class="phone-number">
+                <i class="fas fa-phone-alt"></i> 0543 371 99 72
+            </div>
+            
+            <p>Hurdalarınızı değerlendirmek için hemen arayın! Sadece alüminyum, demir ve bakır hurdaları alıyoruz.</p>
+            
+            <div class="cta-buttons">
+                <a href="tel:05433719972" class="btn btn-phone">
+                    <i class="fas fa-phone-alt"></i> Hemen Ara
+                </a>
+                <a href="https://wa.me/905433719972?text=Merhaba,%20Eskişehir'de%20hurdalarım%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" class="btn btn-whatsapp">
+                    <i class="fab fa-whatsapp"></i> WhatsApp'tan Yaz
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hizmetler -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2>Alım Yaptığımız Hurdalar</h2>
+            <p class="text-center" style="text-align: center; max-width: 800px; margin: 0 auto 30px;">Sadece aşağıda listelenen hurda türlerini almaktayız. Diğer hurda türleri için hizmet veremiyoruz.</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cube metal-aluminium"></i>
+                    </div>
+                    <h3>Alüminyum Hurda</h3>
+                    <p>Her türlü alüminyum hurdası (pencereler, kapılar, mutfak eşyaları, profil, sac, talaş vb.) alıyoruz.</p>
+                    <p><strong>Temizlik:</strong> Yağ, boya, plastik gibi yabancı maddelerden arındırılmış olmalıdır.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-weight-hanging metal-iron"></i>
+                    </div>
+                    <h3>Demir Hurda</h3>
+                    <p>Her çeşit demir hurdası (inşaat demiri, hurda araç, makine parçaları, profil, sac vb.) alıyoruz.</p>
+                    <p><strong>Not:</strong> Paslanmaz çelik ayrı kategoride değerlendirilir ve fiyatlandırılır.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-bolt metal-copper"></i>
+                    </div>
+                    <h3>Bakır Hurda</h3>
+                    <p>Tüm bakır hurda türleri (kablo, boru, sıhhi tesisat, elektrik malzemeleri vb.) alıyoruz.</p>
+                    <p><strong>Kalite:</strong> Bakırın saflık derecesine göre fiyat değişmektedir.</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px; padding: 20px; background-color: #fff8e1; border-radius: 10px; border-left: 4px solid var(--accent);">
+                <h3 style="color: var(--accent);">ÖNEMLİ NOT</h3>
+                <p><strong>Sadece alüminyum, demir ve bakır hurdaları alıyoruz.</strong> Diğer hurda türleri (kağıt, plastik, cam, elektronik atık, akü, pil vb.) için hizmet veremiyoruz.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hizmet Bölgeleri -->
+    <section class="areas" id="areas">
+        <div class="container">
+            <h2>Eskişehir'de Hizmet Verdiğimiz Bölgeler</h2>
+            <p class="text-center" style="text-align: center; max-width: 800px; margin: 0 auto 30px;">Eskişehir ve çevre ilçelerinde hurda alımı yapıyoruz. Aşağıdaki bölgelerde ücretsiz taşıma hizmeti sunmaktayız.</p>
+            
+            <div class="areas-list">
+                <div class="area-item">
+                    <i class="fas fa-map-pin"></i>
+                    <h4>Odunpazarı</h4>
+                </div>
+                
+                <div class="area-item">
+                    <i class="fas fa-map-pin"></i>
+                    <h4>Tepebaşı</h4>
+                </div>
+                
+                <div class="area-item">
+                    <i class="fas fa-map-pin"></i>
+                    <h4>Sivrihisar</h4>
+                </div>
+                
+                <div class="area-item">
+                    <i class="fas fa-map-pin"></i>
+                    <h4>Çifteler</h4>
+                </div>
+                
+                <div class="area-item">
+                    <i class="fas fa-map-pin"></i>
+                    <h4>Mahmudiye</h4>
+                </div>
+                
+                <div class="area-item">
+                    <i class="fas fa-map-pin"></i>
+                    <h4>Alpu</h4>
+                </div>
+                
+                <div class="area-item">
+                    <i class="fas fa-map-pin"></i>
+                    <h4>Beylikova</h4>
+                </div>
+                
+                <div class="area-item">
+                    <i class="fas fa-map-pin"></i>
+                    <h4>İnönü</h4>
+                </div>
+                
+                <div class="area-item">
+                    <i class="fas fa-map-pin"></i>
+                    <h4>Günyüzü</h4>
+                </div>
+                
+                <div class="area-item">
+                    <i class="fas fa-map-pin"></i>
+                    <h4>Mihalıççık</h4>
+                </div>
+                
+                <div class="area-item">
+                    <i class="fas fa-map-pin"></i>
+                    <h4>Sarıcakaya</h4>
+                </div>
+                
+                <div class="area-item">
+                    <i class="fas fa-map-pin"></i>
+                    <h4>Mihalgazi</h4>
+                </div>
+            </div>
+            
+            <p style="text-align: center; margin-top: 30px; font-style: italic;">
+                Diğer bölgeler için lütfen telefonla iletişime geçiniz.
+            </p>
+        </div>
+    </section>
+
+    <!-- Neden Biz -->
+    <section class="why-us" id="why-us">
+        <div class="container">
+            <h2>Neden Bizi Tercih Etmelisiniz?</h2>
+            
+            <div class="features">
+                <div class="feature">
+                    <i class="fas fa-money-bill-wave"></i>
+                    <h3>En Yüksek Fiyat</h3>
+                    <p>Eskişehir piyasasının en iyi fiyatlarını sunuyor, hurdalarınızın gerçek değerini ödüyoruz.</p>
+                </div>
+                
+                <div class="feature">
+                    <i class="fas fa-truck-loading"></i>
+                    <h3>Ücretsiz Taşıma</h3>
+                    <p>Eskişehir içinde belirli miktarın üzerindeki hurdalarınızı ücretsiz olarak yerinizden alıyoruz.</p>
+                </div>
+                
+                <div class="feature">
+                    <i class="fas fa-hand-holding-usd"></i>
+                    <h3>Anında Nakit Ödeme</h3>
+                    <p>Hurdalarınızı teslim aldığımız anda nakit ödeme yapıyoruz, bekleme yok.</p>
+                </div>
+                
+                <div class="feature">
+                    <i class="fas fa-user-tie"></i>
+                    <h3>Yerel ve Güvenilir</h3>
+                    <p>Eskişehir'de yerel, deneyimli ve güvenilir ekibimizle hizmet veriyoruz.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fiyatlar -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <h2>Güncel Hurda Fiyatları</h2>
+            <p class="text-center" style="text-align: center; max-width: 800px; margin: 0 auto 30px;">Fiyatlar piyasa koşullarına göre değişmektedir. En güncel fiyatlar için bizi arayın.</p>
+            
+            <div class="price-table">
+                <div class="price-header">
+                    <h3>Eskişehir Güncel Fiyatları (TL/kg)</h3>
+                    <p>Fiyatlar günlük olarak güncellenmektedir</p>
+                </div>
+                
+                <div class="price-body">
+                    <div class="price-row">
+                        <div class="metal-name">
+                            <i class="fas fa-cube metal-aluminium"></i> Alüminyum Hurda
+                        </div>
+                        <div class="metal-price">
+                            <strong>40-60 TL/kg</strong>
+                        </div>
+                    </div>
+                    
+                    <div class="price-row">
+                        <div class="metal-name">
+                            <i class="fas fa-weight-hanging metal-iron"></i> Demir Hurda
+                        </div>
+                        <div class="metal-price">
+                            <strong>12-18 TL/kg</strong>
+                        </div>
+                    </div>
+                    
+                    <div class="price-row">
+                        <div class="metal-name">
+                            <i class="fas fa-bolt metal-copper"></i> Bakır Hurda (1. Kalite)
+                        </div>
+                        <div class="metal-price">
+                            <strong>180-220 TL/kg</strong>
+                        </div>
+                    </div>
+                    
+                    <div class="price-row">
+                        <div class="metal-name">
+                            <i class="fas fa-bolt metal-copper"></i> Bakır Hurda (2. Kalite)
+                        </div>
+                        <div class="metal-price">
+                            <strong>120-160 TL/kg</strong>
+                        </div>
+                    </div>
+                    
+                    <div class="price-note">
+                        <p>*Fiyatlar hurdanın türüne, saflığına ve piyasa koşullarına göre değişiklik gösterebilir.</p>
+                        <p>**En güncel fiyat için <strong>0543 371 99 72</strong> numaralı telefondan bize ulaşın.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- İletişim -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>İletişim</h2>
+            <p class="text-center" style="text-align: center; max-width: 800px; margin: 0 auto 30px;">Eskişehir'de hurdalarınızı değerlendirmek için bize ulaşın. Ücretsiz keşif ve fiyat teklifi sunuyoruz.</p>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-info-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <h4>Telefon</h4>
+                            <p style="font-size: 1.3rem; font-weight: 600; color: var(--primary);">0543 371 99 72</p>
+                            <p>7/24 arayabilirsiniz</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <div>
+                            <h4>WhatsApp</h4>
+                            <p style="font-size: 1.1rem; font-weight: 600; color: #25D366;">0543 371 99 72</p>
+                            <p>Resim göndererek hurdanızı gösterebilirsiniz</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Çalışma Saatleri</h4>
+                            <p>Pazartesi - Cumartesi: 08:00 - 20:00</p>
+                            <p>Pazar: 10:00 - 18:00</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Hizmet Bölgemiz</h4>
+                            <p>Eskişehir ve tüm ilçelerinde hurda alımı yapılmaktadır.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-item">
+                        <i class="fas fa-truck"></i>
+                        <div>
+                            <h4>Taşıma Hizmeti</h4>
+                            <p>Eskişehir merkez ve ilçelerine ücretsiz hurda taşıma hizmeti</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" placeholder="Adınız Soyadınız" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="tel" placeholder="Telefon Numaranız" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <select required>
+                                <option value="" disabled selected>Hurda Türü Seçin</option>
+                                <option value="aluminium">Alüminyum</option>
+                                <option value="iron">Demir</option>
+                                <option value="copper">Bakır</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <select required>
+                                <option value="" disabled selected>Bulunduğunuz İlçe</option>
+                                <option value="odunpazari">Odunpazarı</option>
+                                <option value="tepebasi">Tepebaşı</option>
+                                <option value="sivrihisar">Sivrihisar</option>
+                                <option value="cifteler">Çifteler</option>
+                                <option value="mahmudiye">Mahmudiye</option>
+                                <option value="alpu">Alpu</option>
+                                <option value="beylikova">Beylikova</option>
+                                <option value="inonu">İnönü</option>
+                                <option value="gunyuzu">Günyüzü</option>
+                                <option value="mihaliccik">Mihalıççık</option>
+                                <option value="saricakaya">Sarıcakaya</option>
+                                <option value="mihalgazi">Mihalgazi</option>
+                                <option value="diger">Diğer</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <textarea placeholder="Hurda miktarı, türü ve açıklama..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn">Eskişehir İçin Fiyat Teklifi İste</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <a href="#" class="logo">
+                        <i class="fas fa-recycle"></i> Eskişehir<span>Hurda</span>
+                    </a>
+                    <p>Eskişehir'de alüminyum, demir ve bakır hurdalarınızı en yüksek fiyattan alıyoruz. Anında nakit ödeme ve ücretsiz taşıma hizmeti.</p>
+                    <div class="social-icons">
+                        <a href="https://wa.me/905433719972" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        <a href="tel:05433719972"><i class="fas fa-phone-alt"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Hızlı Bağlantılar</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Ana Sayfa</a></li>
+                        <li><a href="#services">Hurdalarımız</a></li>
+                        <li><a href="#areas">Hizmet Bölgeleri</a></li>
+                        <li><a href="#why-us">Neden Biz</a></li>
+                        <li><a href="#pricing">Fiyatlar</a></li>
+                        <li><a href="#contact">İletişim</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Alım Yaptığımız Hurdalar</h3>
+                    <ul class="footer-links">
+                        <li><a href="#services">Alüminyum Hurda</a></li>
+                        <li><a href="#services">Demir Hurda</a></li>
+                        <li><a href="#services">Bakır Hurda</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>İletişim Bilgileri</h3>
+                    <ul class="footer-links
